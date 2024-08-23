@@ -1,16 +1,28 @@
 import pytest
-from endpoints.endpointAuthorization import Authorization
-from models.AuthorizationModels import RequestDataVerification
+from Endpoints.endpointAuthorization import Authorization, GetToken
+from Models.AuthorizationModels import RequestDataVerification, RequestDataToken
 
 
 @pytest.fixture(scope='module')
 def get_verification_token():
     verification_instance = Authorization()
+    token_instance = GetToken()
     request_data = RequestDataVerification().requestBody
-    verification_instance.getVerification(request=request_data)
 
+    # Получаем verification_token
+    verification_instance.getVerification(request=request_data)
     verification_token = verification_instance.response.get('verificationToken')
+
     if not verification_token:
         pytest.fail("Verification token not found in the response")
 
-    return verification_token
+    # Создаем объект RequestDataToken
+    token_data = RequestDataToken(verification_token)
+
+    # Получаем access_token
+    token_instance.requestToken(request_data_token=token_data)
+
+    if 'access_token' not in token_instance.response:
+        pytest.fail("Access token not found in the response")
+
+    return token_instance
