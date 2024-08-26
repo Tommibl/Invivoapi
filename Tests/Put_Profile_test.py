@@ -1,7 +1,6 @@
 import pytest
 from Endpoints.Put_Profile_endpoint import Put_Profile
 from Models.Put_Profile_Model import Request_Data_Put_Profile
-
 @pytest.mark.test
 @pytest.mark.run(order=1)
 def test_Put_Profile(get_verification_token):

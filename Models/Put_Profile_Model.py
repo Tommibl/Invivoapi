@@ -1,6 +1,5 @@
 from typing import Any
 from dataclasses import dataclass
-
 class Request_Data_Put_Profile:
     def __init__(self):
         self.requestBody = {
@@ -22,8 +21,6 @@ class Request_Data_Put_Profile:
             "isEmailSubscribed": True,
             "email": "tsgsh@mail.ru"
         }
-
-
 @dataclass
 class Request_Put_Profile:
     id: str
@@ -43,7 +40,6 @@ class Request_Put_Profile:
     isPushSubscribed: bool
     isEmailSubscribed: bool
     email: str
-
     @staticmethod
     def from_request_profile(obj: Any) -> 'Request_Data_Put_Profile':
         _id = str(obj.get("id"))

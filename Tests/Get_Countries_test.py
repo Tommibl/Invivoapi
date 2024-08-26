@@ -1,7 +1,5 @@
 import pytest
 from Endpoints.Get_Countries_endpoint import Countries
-
-
 @pytest.mark.test
 @pytest.mark.run(order=1)
 def test_Countries(get_verification_token):

@@ -1,8 +1,5 @@
 from dataclasses import dataclass
 from urllib.parse import urlencode
-
-
-
 class RequestDataVerification:
     def __init__(self):
         self.requestBody =  {
@@ -16,23 +13,18 @@ class RequestDataVerification:
             "Lat": "43.2498264",
             "Lon": "76.9201907"
         }
-
 class ResponseDataVerification:
     def __init__(self, verificationToken, resendToken, address):
         self.verificationToken = verificationToken
         self.resendToken = resendToken
         self.address = address
-
     def __repr__(self):
         return f"User(verificationToken={self.verificationToken}, resendToken={self.resendToken}, address={self.address})"
-
 @dataclass
 class ResponseDataVerification:
     verification_token: str
     resend_token: str
     address: str
-
-
 class RequestDataToken:
     def __init__(self, verificationToken):
         self.requestBody = {
@@ -42,7 +34,5 @@ class RequestDataToken:
             'username': '77072777313',
             'verification_token': verificationToken
         }
-
     def get_encoded_body(self):
-        # Преобразуем словарь в строку x-www-form-urlencoded
         return urlencode(self.requestBody)

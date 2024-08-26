@@ -1,6 +1,5 @@
 import pytest
 import requests
-
 class Put_Profile:
     response = None
     request = None

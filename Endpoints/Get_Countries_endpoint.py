@@ -1,8 +1,6 @@
 import requests
 from Utils import LoggingMixin
 from Models.Get_Countries_Model import ResponseDataCountries
-
-
 class Countries(LoggingMixin):
     def __init__(self):
         self.expected_response_data = [
@@ -21,12 +19,9 @@ class Countries(LoggingMixin):
             'https://stage-api.qomek.net/geo/api/Countries',
             headers=headers
         ).json()
-
-        # Преобразование данных ответа в объекты ResponseDataCountries
         self.response = [
             ResponseDataCountries(**item) for item in response
         ]
-
     def check_response(self):
         print("Response Data:", self.response)
         print("Expected Data:", self.expected_response_data)
