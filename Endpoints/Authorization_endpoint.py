@@ -42,8 +42,3 @@ class GetToken:
 
     def checkResponse(self):
         assert 'access_token' in self.response, "Access token not found in the response"
-
-
-if __name__ == '__main__':
-    get_token = GetToken()
-    get_token.checkResponse()

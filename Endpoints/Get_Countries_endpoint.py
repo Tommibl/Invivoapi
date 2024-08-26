@@ -1,6 +1,6 @@
 import requests
 from Utils import LoggingMixin
-from Models.CountriesModel import ResponseDataCountries
+from Models.Get_Countries_Model import ResponseDataCountries
 
 
 class Countries(LoggingMixin):

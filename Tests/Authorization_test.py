@@ -1,8 +1,8 @@
 
 import pytest
 
-from Endpoints.endpointAuthorization import GetToken, Authorization
-from Models.AuthorizationModels import RequestDataVerification, RequestDataToken
+from Endpoints.Authorization_endpoint import GetToken, Authorization
+from Models.Authorization_Models import RequestDataVerification, RequestDataToken
 
 
 @pytest.mark.test

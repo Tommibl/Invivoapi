@@ -1,6 +1,6 @@
 import pytest
 
-from Endpoints.endpointProfile import Profile
+from Endpoints.Get_Profile_endpoint import Profile
 
 
 @pytest.mark.test

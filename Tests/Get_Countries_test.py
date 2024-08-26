@@ -1,5 +1,5 @@
 import pytest
-from Endpoints.endpointCountries import Countries
+from Endpoints.Get_Countries_endpoint import Countries
 
 
 @pytest.mark.test

@@ -1,6 +1,6 @@
 import pytest
-from Endpoints.endpointAuthorization import Authorization, GetToken
-from Models.AuthorizationModels import RequestDataVerification, RequestDataToken
+from Endpoints.Authorization_endpoint import Authorization, GetToken
+from Models.Authorization_Models import RequestDataVerification, RequestDataToken
 
 
 @pytest.fixture(scope='module')
