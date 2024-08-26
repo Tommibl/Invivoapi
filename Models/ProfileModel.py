@@ -1,6 +1,6 @@
 
 
-class ResponseDataVerification:
+class ResponseDataProfile:
     def __init__(self, encryptData, id, userId, phoneNumber, uin, documentNo,
                  firstName, midName, lastName, birthDate, description, sex, type,
                  role, isResident, isSmsSubscribed, isPushSubscribed, isEmailSubscribed,

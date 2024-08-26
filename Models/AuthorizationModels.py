@@ -1,4 +1,4 @@
-
+from dataclasses import dataclass
 from urllib.parse import urlencode
 
 
@@ -25,6 +25,13 @@ class ResponseDataVerification:
 
     def __repr__(self):
         return f"User(verificationToken={self.verificationToken}, resendToken={self.resendToken}, address={self.address})"
+
+@dataclass
+class ResponseDataVerification:
+    verification_token: str
+    resend_token: str
+    address: str
+
 
 class RequestDataToken:
     def __init__(self, verificationToken):

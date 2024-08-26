@@ -2,13 +2,14 @@ import requests
 
 
 class Authorization:
-    response = None
-    request = None
+    def __init__(self):
+        self.response = ''
+
     def getVerification(self, request):
         self.response = requests.post(
         'https://identity.qomek.net/api/verification',
-        json=request
-    ).json()
+            json=request
+        ).json()
 
         verification_token = self.response.get('verificationToken')
 
@@ -22,6 +23,9 @@ class Authorization:
 
 
 class GetToken:
+
+    def __init__(self):
+       self.response = ''
 
     def requestToken(self, request_data_token):
         headers = {
@@ -38,3 +42,8 @@ class GetToken:
 
     def checkResponse(self):
         assert 'access_token' in self.response, "Access token not found in the response"
+
+
+if __name__ == '__main__':
+    get_token = GetToken()
+    get_token.checkResponse()
