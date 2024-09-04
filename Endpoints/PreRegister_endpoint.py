@@ -1,7 +1,8 @@
 import requests
-class Labs:
+
+class PreRegister:
     response = None
-    def post_labs(self, token):
+    def post_preregister(self, request, token):
         headers = {
             'Authorization': f'Bearer {token}',
             'language': 'ru',
@@ -9,8 +10,9 @@ class Labs:
             'regionCode': 'KZ_R_4'
         }
         self.response = requests.post(
-        'https://stage-api.qomek.net/laboratory/api/Labs/find?countryCode=KZ',
-        headers = headers
+        'https://stage-api.qomek.net/order/api/Order/preRegister',
+        headers = headers,
+        json = request
     )
         results = self.response.content
         if results:

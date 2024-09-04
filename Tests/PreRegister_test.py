@@ -1,5 +1,6 @@
 import pytest
-from Endpoints.Labs_endpoint import Labs
+from Endpoints.PreRegister_endpoint import PreRegister
+from Models.PreRegister_Model import RequestData
 
 
 @pytest.mark.test
@@ -9,5 +10,6 @@ def test_Labs(get_verification_token):
     token = token_instance.response.get('access_token')
     if not token:
         pytest.fail("Access token not found in the response")
-    labs = Labs()
-    labs.post_labs(token=token)
+    request = RequestData().request_json
+    preregister = PreRegister()
+    preregister.post_preregister(request=request,token=token)
