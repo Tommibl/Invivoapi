@@ -1,8 +1,6 @@
 import pytest
 from Endpoints.Authorization_endpoint import Authorization, GetToken
 from Models.Authorization_Models import RequestDataVerification, RequestDataToken
-
-
 @pytest.fixture(scope='module')
 def get_verification_token():
     verification_instance = Authorization()

@@ -14,7 +14,5 @@ class Price:
         headers = headers
     )
         results = self.response.content
-        if results:
-            print(f"results: {results}")
-        else:
-            print("results not found in the response")
+        print(results)
+        return results

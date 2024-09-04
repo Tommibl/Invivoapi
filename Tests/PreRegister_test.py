@@ -1,8 +1,7 @@
 import pytest
+from Asserts import Asserts
 from Endpoints.PreRegister_endpoint import PreRegister
 from Models.PreRegister_Model import RequestData
-
-
 @pytest.mark.test
 @pytest.mark.run(order=1)
 def test_Labs(get_verification_token):
@@ -12,4 +11,6 @@ def test_Labs(get_verification_token):
         pytest.fail("Access token not found in the response")
     request = RequestData().request_json
     preregister = PreRegister()
-    preregister.post_preregister(request=request,token=token)
+    response = preregister.post_preregister(request=request,token=token)
+    asserts = Asserts()
+    asserts.CheckResponse_notEmpty(response)

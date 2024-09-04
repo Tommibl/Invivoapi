@@ -1,13 +1,13 @@
 import pytest
-
 from Asserts import Asserts
-from Endpoints.Labs_endpoint import Labs
+from Endpoints.Cities_endpoint import Cities
+
 @pytest.mark.test
 @pytest.mark.run(order=1)
-def test_Labs(get_verification_token):
+def test_Cities(get_verification_token):
     token_instance = get_verification_token
     token = token_instance.response.get('access_token')
-    labs = Labs()
-    response = labs.post_labs(token=token)
+    cities = Cities()
+    response = cities.get_cities(token=token)
     asserts = Asserts()
-    asserts.CheckResponse_notEmpty(response)
+    asserts.check_response_status_200(response)

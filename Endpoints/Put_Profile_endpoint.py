@@ -1,4 +1,4 @@
-import pytest
+
 import requests
 class Put_Profile:
     response = None
@@ -12,9 +12,5 @@ class Put_Profile:
         headers = headers,
         json = request
         )
-        response = self.response
         print(self.response)
-        if response.status_code == 401:
-            pytest.fail("Unauthorized: Invalid or expired token")
-        if not response.content:
-            pytest.fail("Empty response received")
+        return self.response
