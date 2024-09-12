@@ -2,7 +2,7 @@ import pytest
 from Asserts import Asserts
 from Endpoints.Balance_endpoint import Balance
 @pytest.mark.test
-@pytest.mark.run(order=1)
+@pytest.mark.run(order=9)
 def test_Balance(get_verification_token):
     token_instance = get_verification_token
     token = token_instance.response.get('access_token')

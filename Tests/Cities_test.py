@@ -3,7 +3,7 @@ from Asserts import Asserts
 from Endpoints.Cities_endpoint import Cities
 
 @pytest.mark.test
-@pytest.mark.run(order=1)
+@pytest.mark.run(order=5)
 def test_Cities(get_verification_token):
     token_instance = get_verification_token
     token = token_instance.response.get('access_token')

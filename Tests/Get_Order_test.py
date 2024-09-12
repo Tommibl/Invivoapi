@@ -1,13 +1,13 @@
 import pytest
-
 from Asserts import Asserts
-from Endpoints.Price_endpoint import Price
+from Endpoints.Get_Order_endpoint import Order
+
 @pytest.mark.test
-@pytest.mark.run(order=7)
-def test_Price(get_verification_token):
+@pytest.mark.run(order=13)
+def test_Get_Order(get_verification_token):
     token_instance = get_verification_token
     token = token_instance.response.get('access_token')
-    price = Price()
-    response = price.get_price(token=token)
+    order = Order()
+    response = order.get_Order(token)
     asserts = Asserts()
     asserts.CheckResponse_notEmpty(response)
