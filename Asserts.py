@@ -10,7 +10,11 @@ class Asserts:
         assert response_data_set == expected_data_set, "Response data does not match expected data"
 
     def checkResponse_availability(self, field, response):
-        assert field in response, "Field absent"
+        if isinstance(response, bytes):
+            resp = response.decode('utf-8')
+        else:
+            resp = response
+        assert field in resp, "Field absent"
 
     def CheckResponse_notEmpty(self, response):
         assert response, "Response is empty!"
